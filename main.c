@@ -2,8 +2,11 @@
 #include <raylib.h>
 
 #define MAX_ITERATIONS 200
-#define WIDTH 1000
-#define HEIGHT 800
+#define WIDTH 800
+#define HEIGHT 600
+
+float zoom = 1.0f;
+Vector2 center = {-0.716f, 0.3f};
 
 int mandelbrot(float x, float y) {
     float xx = 0.0f, yy= 0.0f;
@@ -26,13 +29,15 @@ int main() {
     Image im = GenImageColor(WIDTH, HEIGHT, BLACK);
     Texture2D tex = LoadTextureFromImage(im);
 
-    SetTargetFPS(60);
+    //SetTargetFPS(60);
 
     while (!WindowShouldClose()){
+        zoom *= 0.895f; // zoom factor
+
         for (int x = 0; x < WIDTH; ++x){
             for (int y = 0; y < HEIGHT; ++y){
-                float cx = (float)x / WIDTH * 3.5f - 2.5f;
-                float cy = (float)y / HEIGHT * 2.0f - 1.0f;
+                float cx = ((float)x / WIDTH * 3.5f - 2.5f) * zoom + center.x;
+                float cy = ((float)y / HEIGHT * 2.0f - 1.0f) * zoom + center.y;
 
                 int iterations = mandelbrot(cx, cy);
                 Color col = (Color){iterations % 8 * 32,
