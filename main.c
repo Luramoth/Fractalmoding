@@ -11,9 +11,9 @@
 
 
 #define MAX_ITERATIONS 200
-#define WIDTH 800
-#define HEIGHT 600
-#define NUM_Threads 4
+#define WIDTH 1000
+#define HEIGHT 800
+#define NUM_Threads 8
 
 float zoom = 1.0f;
 Vector2 center = {-0.716f, 0.3f};
@@ -93,7 +93,7 @@ int main() {
         ClearBackground(BLACK);
         DrawTexture(tex, 0, 0, WHITE);
 
-        printf("FPS: %i", GetFPS());
+        DrawFPS(10, 10);
 
         EndDrawing();
     }
