@@ -2,8 +2,8 @@
 #include <raylib.h>
 
 #define MAX_ITERATIONS 200
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 1000
+#define HEIGHT 800
 
 int mandelbrot(float x, float y) {
     float xx = 0.0f, yy= 0.0f;
@@ -30,7 +30,7 @@ int main() {
 
     while (!WindowShouldClose()){
         for (int x = 0; x < WIDTH; ++x){
-            for (int y = 0; y < 800; ++y){
+            for (int y = 0; y < HEIGHT; ++y){
                 float cx = (float)x / WIDTH * 3.5f - 2.5f;
                 float cy = (float)y / HEIGHT * 2.0f - 1.0f;
 
