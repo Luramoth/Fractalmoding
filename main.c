@@ -93,6 +93,8 @@ int main() {
         ClearBackground(BLACK);
         DrawTexture(tex, 0, 0, WHITE);
 
+        printf("FPS: %i", GetFPS());
+
         EndDrawing();
     }
 
